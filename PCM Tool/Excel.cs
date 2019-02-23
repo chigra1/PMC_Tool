@@ -660,13 +660,15 @@ namespace PCM_Tool
         public BOM CopyBOM(int MSmulti,string MSproduct, List<string> pcbaFilenames)
         {
             List<Assembly> assemblies = Program.mainForm.assemblies;
+            
             int assembly_num = 0;
-            bool assembly = false;
+            //bool assembly = false;
             //MessageBox.Show( ws.UsedRange.Rows.Count.ToString());
             int number_of_rows = ws.UsedRange.Rows.Count;
             //MessageBox.Show(number_of_rows.ToString());
             //ukupan broj redova - 3
             int number_of_items = number_of_rows - 3;
+
             BOM bom = new BOM(number_of_items);
             for (int i = 4, z = 0; i <= number_of_rows; i++, z++)
             {
@@ -682,19 +684,20 @@ namespace PCM_Tool
                     Program.mainForm.addToErrorList = bom.item[z].name + " value in BOM " + MSproduct + " is null!";
                 }
 
-                for (int j = 0; j < pcbaFilenames.Count; j++)
-                {
-                    if (pcbaFilenames[j] == bom.item[z].name)
-                    {
-                        assemblies.Add(new Assembly(bom.item[z].name));
-                        assembly_num = assemblies.Count - 1;
-                        assemblies[assembly_num].ms_quantity = MSmulti;
-                    }
-                }
+                //for (int j = 0; j < pcbaFilenames.Count; j++)
+                //{
+                //    if (pcbaFilenames[j] == bom.item[z].name)
+                //    {
+                //        assemblies.Add(new Assembly(bom.item[z].name));
+                //        assembly_num = assemblies.Count - 1;
+                //        assemblies[assembly_num].ms_quantity = MSmulti;
+                //    }
+                //}
 
 
-                /*if ( i <= number_of_rows && i > 4)
+                if ( i <= number_of_rows && i > 4)
                 {
+                    
                     int level = Convert.ToInt32(ws.Cells[i, 1].Value2.Replace(".", string.Empty));
                     int next_row_level = 0;
                     if (i < number_of_rows)
@@ -708,28 +711,43 @@ namespace PCM_Tool
                         {
                             assemblies.Add(new Assembly(bom.item[z].name));
                             assembly_num = assemblies.Count - 1;
-                            assembly = true;
+                            //assembly = true;
                             assemblies[assembly_num].ms_quantity = MSmulti;
+                            assemblies[assembly_num].row = i;
+                            assemblies[assembly_num].level = level;
+                            int sledeci_item = 1;
+                            
+                            while (assemblies[assembly_num].level < Convert.ToInt32(ws.Cells[i + sledeci_item, 1].Value2.Replace(".", string.Empty)))
+                            {
+                                if (Convert.ToInt32(ws.Cells[i + sledeci_item, 1].Value2.Replace(".", string.Empty)) == assemblies[assembly_num].level + 1)
+                                {
+                                    assemblies[assembly_num].AddItem(ws.Cells[i + sledeci_item, 2].Value2, ws.Cells[i + sledeci_item, 6].Value2);
+                                }
+                                    sledeci_item++;
+                                if (i + sledeci_item > number_of_rows)
+                                    break;
+                            }
                         }
                         else
                         {
                             assemblies[redni_br].ms_quantity += MSmulti;
                         }
                     }
-                    else if (next_row_level < level && assembly == true)
-                    {
-                        assemblies[assembly_num].AddItem(bom.item[z].name, ws.Cells[i, 6].Value2);
-                        assembly = false;
-                    }
-                    else
-                    {
-                        if (assembly == true)
-                        {
-                            assemblies[assembly_num].AddItem(bom.item[z].name, ws.Cells[i, 6].Value2);
-                        }
 
-                    }
-                }*/
+                    //else if (next_row_level < level && assembly == true)
+                    //{
+                    //    assemblies[assembly_num].AddItem(bom.item[z].name, ws.Cells[i, 6].Value2);
+                    //    assembly = false;
+                    //}
+                    //else
+                    //{
+                    //    if (assembly == true)
+                    //    {
+                    //        assemblies[assembly_num].AddItem(bom.item[z].name, ws.Cells[i, 6].Value2);
+                    //    }
+
+                    //}
+                }
             }
             return bom;
         }
@@ -849,22 +867,19 @@ namespace PCM_Tool
         }
         public void SaveWholeList(string path, DataGridView dgv)
         {
-            var array = new object[dgv.RowCount, dgv.ColumnCount];
-            foreach (DataGridViewRow i in dgv.Rows)
-            {
-                if (i.IsNewRow) continue;
-                foreach (DataGridViewCell j in i.Cells)
-                {
-                    array[j.RowIndex, j.ColumnIndex] = j.Value;
-                }
-            }
-
-
-
+            //var array = new object[dgv.RowCount, dgv.ColumnCount];
+            //foreach (DataGridViewRow i in dgv.Rows)
+            //{
+            //    if (i.IsNewRow) continue;
+            //    foreach (DataGridViewCell j in i.Cells)
+            //    {
+            //        array[j.RowIndex, j.ColumnIndex] = j.Value;
+            //    }
+            //}
             int numberOfColumns = dgv.Columns.Count;
             wb = excel.Workbooks.Add(1);
             ws = wb.Worksheets.get_Item(1);
-            /*
+            
             try
             {
                 ws.Cells[1, 1].Value2 = "Date and time: " + DateTime.Now.ToString("dd/MM/yyyy h:mm:ss tt");
@@ -884,7 +899,7 @@ namespace PCM_Tool
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
 
             ws.Columns.AutoFit();
             _Excel.Range header = ws.Range[ws.Cells[header_row, 1], ws.Cells[3, numberOfColumns]];

@@ -61,10 +61,13 @@ namespace PCM_Tool
             s.LoadMPQTypes();
 
             CopyBOMs();
-            CopyPCBAs();
+            //CopyPCBAs();
 
+            //assembly
             addWIPQuantityToAssembly();
             addInventoryQuantityToAssembly();
+
+            //database
             addDatabaseToBOMList();
             
             bom = removeHDTbrandFromBOMS();//ovo ce da obrise sve komponente koje imaju HDT u U koloni u database fajlu
@@ -77,7 +80,9 @@ namespace PCM_Tool
             addPOToStockList();
             addWIPToStockList();
             addSSToStockList();
-            //addOP_POToStockList();
+            //addOP_POToStockList();// iskljuceno 01.2019
+
+            //write to gui
             WriteBomDataToDataGridView();
          
             btnExportAll.Enabled = true;
@@ -210,7 +215,7 @@ namespace PCM_Tool
             label2.Visible = false;
             LoadMasterSchedule();
             WriteErrorsToDataGridView();
-            GetPCBAFilenames();
+            //GetPCBAFilenames();
         }
 
         private int SearchIfBOMExistsInList(int redniBroj) //ako 

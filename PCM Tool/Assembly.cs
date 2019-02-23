@@ -13,6 +13,9 @@ namespace PCM_Tool
         public double wip_quantity;
         public double inventory_quantity;
         public double ms_quantity;
+        public int row;
+        public int level;
+
 
         public Assembly(string name)
         {
