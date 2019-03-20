@@ -554,7 +554,60 @@ namespace PCM_Tool
                 }
             }
         }
+        public void getQuantityFromOP_POforAssembly(List<Assembly> assembly, string column)
+        {
+            column = column + ":" + column;
 
+            for (int i = 0; i < assembly.Count; i++)
+            {
+                string item = assembly[i].name;
+
+                _Excel.Range colRange = ws.Columns[column];//get the range object where you want to search from
+
+                _Excel.Range resultRange = colRange.Find(
+
+                What: item,
+
+                LookIn: _Excel.XlFindLookIn.xlValues,
+
+                LookAt: _Excel.XlLookAt.xlWhole,
+
+                SearchOrder: _Excel.XlSearchOrder.xlByRows,
+
+                SearchDirection: _Excel.XlSearchDirection.xlNext
+
+                );
+
+                if (resultRange == null)
+                {
+                    ///Program.mainForm.addToErrorList = "Did not found " + item + " in WIP - column " + column.Substring(1);
+                }
+                else
+                {
+                    _Excel.Range firstRange = resultRange;
+
+                    while (resultRange != null)
+                    {
+                        try
+                        {
+                            assembly[i].opPO_quantity += ws.Cells[resultRange.Row, 11].Value2;
+                        }
+
+                        catch
+                        {
+
+                        }
+
+                        _Excel.Range temp = resultRange;
+                        resultRange = colRange.FindNext(temp);
+
+                        if (resultRange.Address == firstRange.Address)
+                            resultRange = null;
+
+                    }
+                }
+            }
+        }
 
         public BOM getQuantityFromSSforBomComponents(BOM bom, string column)
         {

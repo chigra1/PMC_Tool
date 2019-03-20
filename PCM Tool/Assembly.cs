@@ -13,6 +13,7 @@ namespace PCM_Tool
         public double wip_quantity;
         public double inventory_quantity;
         public double ms_quantity;
+        public double opPO_quantity;
         public int row;
         public int level;
 
@@ -36,7 +37,7 @@ namespace PCM_Tool
         {
             get
             {
-                return stock = this.wip_quantity + this.inventory_quantity;
+                return stock = this.wip_quantity + this.inventory_quantity + this.opPO_quantity;
             }
         }
 

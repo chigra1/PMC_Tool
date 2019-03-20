@@ -66,6 +66,7 @@ namespace PCM_Tool
             //assembly
             addWIPQuantityToAssembly();
             addInventoryQuantityToAssembly();
+            addOP_POToAssembly();
 
             //database
             addDatabaseToBOMList();
@@ -117,8 +118,8 @@ namespace PCM_Tool
                     {
                         if (assemblies[j].lstItems[z].material_name == bom.item[i].name)
                         {
-                            if(assemblies[j].ms_quantity >= assemblies[j].inventory_quantity + assemblies[j].wip_quantity)
-                                bom.item[i].assembly_qty += assemblies[j].lstItems[z].material_qty * (assemblies[j].inventory_quantity + assemblies[j].wip_quantity);
+                            if(assemblies[j].ms_quantity >= assemblies[j].inventory_quantity + assemblies[j].wip_quantity + assemblies[j].opPO_quantity)
+                                bom.item[i].assembly_qty += assemblies[j].lstItems[z].material_qty * (assemblies[j].inventory_quantity + assemblies[j].wip_quantity + assemblies[j].opPO_quantity);
                             else
                                 bom.item[i].assembly_qty += assemblies[j].lstItems[z].material_qty * assemblies[j].ms_quantity;
                         }
@@ -343,7 +344,7 @@ namespace PCM_Tool
                 dGVmaterials.Rows[i].Cells["stockQty"].Value = bom.item[i].stockqty;
                 dGVmaterials.Rows[i].Cells["WIP"].Value = Math.Round(bom.item[i].wip, 0);
                 dGVmaterials.Rows[i].Cells["PO"].Value = Math.Round(bom.item[i].po, 0);
-                dGVmaterials.Rows[i].Cells["OP_PO"].Value = Math.Round(bom.item[i].op_po, 0);
+                //dGVmaterials.Rows[i].Cells["OP_PO"].Value = Math.Round(bom.item[i].op_po, 0);
                 dGVmaterials.Rows[i].Cells["Assembly_Quantity"].Value = Math.Round(bom.item[i].assembly_qty, 0);
                 dGVmaterials.Rows[i].Cells["diff"].Value = Math.Round(bom.item[i].difference, 0);
                 dGVmaterials.Rows[i].Cells["MOQ"].Value = Math.Round(bom.item[i].moq, 0);
@@ -432,6 +433,14 @@ namespace PCM_Tool
             path = AppDomain.CurrentDomain.BaseDirectory + @"SUDA\Inventory_Report.xlsx";
             Excel excel = new Excel(path, 1);
             excel.getQuantityFromInventoryforAssembly(assemblies, "A");
+            excel.Dispose();
+        }
+
+        private void addOP_POToAssembly()
+        {
+            path = AppDomain.CurrentDomain.BaseDirectory + @"SUDA\Out_Processing_PO.xlsx";
+            Excel excel = new Excel(path, 1);
+            excel.getQuantityFromOP_POforAssembly(assemblies, "D");
             excel.Dispose();
         }
 

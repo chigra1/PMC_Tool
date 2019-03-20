@@ -34,25 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dGVmaterials = new System.Windows.Forms.DataGridView();
-            this.itemNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delivery_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bomQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.safetyStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OP_PO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Assembly_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.POQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Final_demand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dGVboms = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +61,24 @@
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.itemNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delivery_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bomQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.safetyStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Assembly_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.POQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Final_demand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGVmaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVboms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVerrors)).BeginInit();
@@ -137,7 +136,6 @@
             this.stockQty,
             this.WIP,
             this.PO,
-            this.OP_PO,
             this.Assembly_Quantity,
             this.diff,
             this.MOQ,
@@ -150,131 +148,6 @@
             this.dGVmaterials.ReadOnly = true;
             this.dGVmaterials.Size = new System.Drawing.Size(743, 340);
             this.dGVmaterials.TabIndex = 16;
-            // 
-            // itemNumber
-            // 
-            this.itemNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.itemNumber.HeaderText = "Item";
-            this.itemNumber.Name = "itemNumber";
-            this.itemNumber.ReadOnly = true;
-            this.itemNumber.Width = 52;
-            // 
-            // itemName
-            // 
-            this.itemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.itemName.HeaderText = "Material Number";
-            this.itemName.Name = "itemName";
-            this.itemName.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // Supplier
-            // 
-            this.Supplier.HeaderText = "Supplier";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
-            // 
-            // Delivery_time
-            // 
-            this.Delivery_time.HeaderText = "Delivery Time";
-            this.Delivery_time.Name = "Delivery_time";
-            this.Delivery_time.ReadOnly = true;
-            // 
-            // Product
-            // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Product.HeaderText = "BOMs";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            this.Product.Width = 61;
-            // 
-            // bomQty
-            // 
-            this.bomQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.bomQty.HeaderText = "Total Required Components";
-            this.bomQty.Name = "bomQty";
-            this.bomQty.ReadOnly = true;
-            this.bomQty.Width = 150;
-            // 
-            // safetyStock
-            // 
-            this.safetyStock.HeaderText = "Safety Stock";
-            this.safetyStock.Name = "safetyStock";
-            this.safetyStock.ReadOnly = true;
-            // 
-            // stockQty
-            // 
-            this.stockQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.stockQty.HeaderText = "On Stock";
-            this.stockQty.Name = "stockQty";
-            this.stockQty.ReadOnly = true;
-            this.stockQty.Width = 71;
-            // 
-            // WIP
-            // 
-            this.WIP.HeaderText = "WIP";
-            this.WIP.Name = "WIP";
-            this.WIP.ReadOnly = true;
-            // 
-            // PO
-            // 
-            this.PO.HeaderText = "PO";
-            this.PO.Name = "PO";
-            this.PO.ReadOnly = true;
-            // 
-            // OP_PO
-            // 
-            this.OP_PO.HeaderText = "OP_PO";
-            this.OP_PO.Name = "OP_PO";
-            this.OP_PO.ReadOnly = true;
-            // 
-            // Assembly_Quantity
-            // 
-            this.Assembly_Quantity.HeaderText = "Assembly_Quantity";
-            this.Assembly_Quantity.Name = "Assembly_Quantity";
-            this.Assembly_Quantity.ReadOnly = true;
-            // 
-            // diff
-            // 
-            this.diff.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.diff.HeaderText = "Difference";
-            this.diff.Name = "diff";
-            this.diff.ReadOnly = true;
-            this.diff.Width = 81;
-            // 
-            // MOQ
-            // 
-            this.MOQ.HeaderText = "MOQ";
-            this.MOQ.Name = "MOQ";
-            this.MOQ.ReadOnly = true;
-            // 
-            // POQ
-            // 
-            this.POQ.HeaderText = "POQ";
-            this.POQ.Name = "POQ";
-            this.POQ.ReadOnly = true;
-            // 
-            // Final_demand
-            // 
-            this.Final_demand.HeaderText = "Final Demand";
-            this.Final_demand.Name = "Final_demand";
-            this.Final_demand.ReadOnly = true;
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            this.Unit_Price.ReadOnly = true;
-            // 
-            // Total_price
-            // 
-            this.Total_price.HeaderText = "Total Price";
-            this.Total_price.Name = "Total_price";
-            this.Total_price.ReadOnly = true;
             // 
             // dGVboms
             // 
@@ -535,6 +408,125 @@
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 31;
             // 
+            // itemNumber
+            // 
+            this.itemNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.itemNumber.HeaderText = "Item";
+            this.itemNumber.Name = "itemNumber";
+            this.itemNumber.ReadOnly = true;
+            this.itemNumber.Width = 52;
+            // 
+            // itemName
+            // 
+            this.itemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.itemName.HeaderText = "Material Number";
+            this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.HeaderText = "Supplier";
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // Delivery_time
+            // 
+            this.Delivery_time.HeaderText = "Delivery Time";
+            this.Delivery_time.Name = "Delivery_time";
+            this.Delivery_time.ReadOnly = true;
+            // 
+            // Product
+            // 
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Product.HeaderText = "BOMs";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            this.Product.Width = 61;
+            // 
+            // bomQty
+            // 
+            this.bomQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.bomQty.HeaderText = "Total Required Components";
+            this.bomQty.Name = "bomQty";
+            this.bomQty.ReadOnly = true;
+            this.bomQty.Width = 150;
+            // 
+            // safetyStock
+            // 
+            this.safetyStock.HeaderText = "Safety Stock";
+            this.safetyStock.Name = "safetyStock";
+            this.safetyStock.ReadOnly = true;
+            // 
+            // stockQty
+            // 
+            this.stockQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.stockQty.HeaderText = "On Stock";
+            this.stockQty.Name = "stockQty";
+            this.stockQty.ReadOnly = true;
+            this.stockQty.Width = 71;
+            // 
+            // WIP
+            // 
+            this.WIP.HeaderText = "WIP";
+            this.WIP.Name = "WIP";
+            this.WIP.ReadOnly = true;
+            // 
+            // PO
+            // 
+            this.PO.HeaderText = "PO";
+            this.PO.Name = "PO";
+            this.PO.ReadOnly = true;
+            // 
+            // Assembly_Quantity
+            // 
+            this.Assembly_Quantity.HeaderText = "Assembly_Quantity";
+            this.Assembly_Quantity.Name = "Assembly_Quantity";
+            this.Assembly_Quantity.ReadOnly = true;
+            // 
+            // diff
+            // 
+            this.diff.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.diff.HeaderText = "Difference";
+            this.diff.Name = "diff";
+            this.diff.ReadOnly = true;
+            this.diff.Width = 81;
+            // 
+            // MOQ
+            // 
+            this.MOQ.HeaderText = "MOQ";
+            this.MOQ.Name = "MOQ";
+            this.MOQ.ReadOnly = true;
+            // 
+            // POQ
+            // 
+            this.POQ.HeaderText = "POQ";
+            this.POQ.Name = "POQ";
+            this.POQ.ReadOnly = true;
+            // 
+            // Final_demand
+            // 
+            this.Final_demand.HeaderText = "Final Demand";
+            this.Final_demand.Name = "Final_demand";
+            this.Final_demand.ReadOnly = true;
+            // 
+            // Unit_Price
+            // 
+            this.Unit_Price.HeaderText = "Unit Price";
+            this.Unit_Price.Name = "Unit_Price";
+            this.Unit_Price.ReadOnly = true;
+            // 
+            // Total_price
+            // 
+            this.Total_price.HeaderText = "Total Price";
+            this.Total_price.Name = "Total_price";
+            this.Total_price.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,7 +553,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PMC Tool v.0.2.0";
+            this.Text = "PMC Tool v.0.2.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVmaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVboms)).EndInit();
@@ -609,6 +601,7 @@
         private System.Windows.Forms.Button btnExportErrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Detail;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
@@ -620,7 +613,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stockQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn WIP;
         private System.Windows.Forms.DataGridViewTextBoxColumn PO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OP_PO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Assembly_Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn diff;
         private System.Windows.Forms.DataGridViewTextBoxColumn MOQ;
@@ -628,7 +620,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Final_demand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_price;
-        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 
