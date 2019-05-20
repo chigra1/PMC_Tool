@@ -128,10 +128,10 @@ namespace PCM_Tool
                     //ovo su podaci za taj item
 
                     if (ws.Cells[row, 28].Value2 == "HDT")
-                    {
-                        bom.item[i].HDTflag = true;
-                        bom.numberOfHDTFlags++;
-                    }
+                        {
+                            bom.item[i].HDTflag = true;
+                            bom.numberOfHDTFlags++;
+                        }
 
                     try//ako nije upisan mpq u stocku da bi preskocio null
                         {
@@ -139,56 +139,63 @@ namespace PCM_Tool
                             if (bom.item[i].mpq == 0)
                                 Program.mainForm.addToErrorList = "POQ is 0 for item: " + bom.item[i].name;
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "POQ is not available for item: " + bom.item[i].name;
                         }
 
-                        try//ako nije upisan moq u stocku da bi preskocio null
+                    try//ako nije upisan moq u stocku da bi preskocio null
                         {
                             bom.item[i].moq = ws.Cells[row, 14].Value2;
                             if (bom.item[i].moq == 0)
                                 Program.mainForm.addToErrorList = "MOQ is 0 for item: " + bom.item[i].name;
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "MOQ is not available for item: " + bom.item[i].name;
                         }
 
-                        try//ako nije upisan unit_price u stocku da bi preskocio null
+                    try//ako nije upisan unit_price u stocku da bi preskocio null
                         {
                             bom.item[i].unit_price = ws.Cells[row, 17].Value2;
                             if (bom.item[i].unit_price == 0)
                                 Program.mainForm.addToErrorList = "Unit price is 0 for item: " + bom.item[i].name;
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "Unit price is not available for item: " + bom.item[i].name;
                         }
 
-                        try//ako nije upisan Delivery Time u stocku da bi preskocio null
+                    try//ako nije upisan Delivery Time u stocku da bi preskocio null
                         {
                             bom.item[i].delivery_time = (int)ws.Cells[row, 12].Value2;
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "Delivery Time is not available for item: " + bom.item[i].name;
                         }
 
-                        try//ako nije upisan description u stocku da bi preskocio null
+                    try//ako nije upisan description u stocku da bi preskocio null
                         {
                             bom.item[i].description = ws.Cells[row, 3].Value2.ToString();
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "Description is not available for item: " + bom.item[i].name;
                         }
-
-                        try//ako nije upisan dobavljac u stocku da bi preskocio null
+                    try//ako nije upisan chineseDescription da bi preskocio null
+                        {
+                            bom.item[i].chineseDescription = ws.Cells[row, 2].Value2.ToString();
+                        }
+                    catch
+                        {
+                            Program.mainForm.addToErrorList = "Chinese Description is not available for item: " + bom.item[i].name;
+                        }
+                    try//ako nije upisan dobavljac u stocku da bi preskocio null
                         {
                             bom.item[i].supplier = ws.Cells[row, 11].Value2.ToString();
                         }
-                        catch
+                    catch
                         {
                             Program.mainForm.addToErrorList = "Supplier is not available for item: " + bom.item[i].name;
                         }

@@ -316,8 +316,6 @@ namespace PCM_Tool
             dGVmaterials.Rows.Clear();
             for (int i = 0; i < bom.item.Length; i++)
             {
-                //if (bom.item[i].HDTflag == false)
-                //{
                 //izracunaj razliku
                 bom.calcDifference(i);
                 if (bom.item[i].difference < 0)
@@ -335,6 +333,7 @@ namespace PCM_Tool
                 dGVmaterials.Rows[i].Cells["itemNumber"].Value = i + 1;
                 dGVmaterials.Rows[i].Cells["itemName"].Value = name;
                 dGVmaterials.Rows[i].Cells["Description"].Value = bom.item[i].description;
+                dGVmaterials.Rows[i].Cells["chineseDescription"].Value = bom.item[i].chineseDescription;
                 dGVmaterials.Rows[i].Cells["Supplier"].Value = bom.item[i].supplier;
                 dGVmaterials.Rows[i].Cells["Delivery_time"].Value = bom.item[i].delivery_time;
                 dGVmaterials.Rows[i].Cells["Product"].Value = product;

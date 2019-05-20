@@ -25,6 +25,7 @@ namespace PCM_Tool
             public string product;//koji je bom
 
             public string description;//opis komponente
+            public string chineseDescription;//opis komponente
             public double stockqty;//koliko ima na stoku
             public double mpq;//
             public double moq;//
