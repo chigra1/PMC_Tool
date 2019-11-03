@@ -448,7 +448,7 @@ namespace PCM_Tool
 
                     while (resultRange != null)
                     {                                                                                       
-                        bom.item[i].wip += ws.Cells[resultRange.Row, 20].Value2;
+                        bom.item[i].wip += (ws.Cells[resultRange.Row, 20].Value2 - ws.Cells[resultRange.Row, 21].Value2);
 
                         _Excel.Range temp = resultRange;
                         resultRange = colRange.FindNext(temp);
@@ -495,7 +495,7 @@ namespace PCM_Tool
 
                     while (resultRange != null)
                     {
-                        assembly[i].wip_quantity += (ws.Cells[resultRange.Row, 20].Value2 - ws.Cells[resultRange.Row, 21].Value2);
+                        assembly[i].wip_quantity += ws.Cells[resultRange.Row, 20].Value2;
 
                         _Excel.Range temp = resultRange;
                         resultRange = colRange.FindNext(temp);
