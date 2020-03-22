@@ -561,7 +561,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PMC Tool v.0.2.3";
+            this.Text = "PMC Tool v.0.2.4";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVmaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVboms)).EndInit();
